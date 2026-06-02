@@ -1,0 +1,20 @@
+<div class="testimonial-card">
+  <div class="quote-icon">❝</div>
+  
+  <p class="message">{{ testimonial.message }}</p>
+
+  <div class="rating">
+    <span *ngFor="let i of getStars()" class="star">★</span>
+  </div>
+
+  <div class="author">
+    <div class="avatar">
+      {{ testimonial.name.charAt(0) }}{{ testimonial.name.split(' ')[1].charAt(0) }}
+    </div>
+    <div class="author-info">
+      <h4>{{ testimonial.name }}</h4>
+      <p class="position">{{ testimonial.position }}</p>
+      <p class="company">{{ testimonial.company }}</p>
+    </div>
+  </div>
+</div>

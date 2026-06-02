@@ -1,0 +1,19 @@
+<div class="pricing-card" [class.highlighted]="plan.highlighted">
+  <div class="card-header">
+    <h3>{{ plan.name }}</h3>
+    <div class="price">
+      <span class="currency">{{ plan.price.substring(0, 1) }}</span>
+      <span class="amount">{{ plan.price.substring(1) }}</span>
+    </div>
+    <p class="description" *ngIf="plan.description">{{ plan.description }}</p>
+  </div>
+
+  <ul class="features-list">
+    <li *ngFor="let feature of plan.features" class="feature-item">
+      <span class="feature-icon">✓</span>
+      <span class="feature-text">{{ feature }}</span>
+    </li>
+  </ul>
+
+  <button class="cta-button">{{ plan.cta }}</button>
+</div>

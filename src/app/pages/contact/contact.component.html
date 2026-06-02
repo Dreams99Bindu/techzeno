@@ -1,0 +1,172 @@
+<!-- Hero Section -->
+<section class="contact-hero">
+  <div class="container" [@fadeInUp]>
+    <h1>Get In Touch</h1>
+    <p>Let's discuss your project and find the perfect solution</p>
+  </div>
+</section>
+
+<!-- Contact Form & Info -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Contact Form -->
+      <div class="form-container" [@fadeInUp]>
+        <h2>Send Us a Message</h2>
+        
+        <!-- Success Message -->
+        <div class="alert alert-success" *ngIf="submitSuccess">
+          ✓ Thank you! We've received your message and will contact you soon.
+        </div>
+
+        <!-- Error Message -->
+        <div class="alert alert-error" *ngIf="submitError">
+          ✗ {{ errorMessage }}
+        </div>
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <!-- Name -->
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              placeholder="Your name"
+              [class.error]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+            >
+            <span class="error-message" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+              {{ getErrorMessage('name') }}
+            </span>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              placeholder="your@email.com"
+              [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+            >
+            <span class="error-message" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+              {{ getErrorMessage('email') }}
+            </span>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input
+              type="tel"
+              id="phone"
+              formControlName="phone"
+              placeholder="+91 98765 43210"
+              [class.error]="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched"
+            >
+            <span class="error-message" *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">
+              {{ getErrorMessage('phone') }}
+            </span>
+          </div>
+
+          <!-- Business Name -->
+          <div class="form-group">
+            <label for="businessName">Business Name *</label>
+            <input
+              type="text"
+              id="businessName"
+              formControlName="businessName"
+              placeholder="Your company name"
+              [class.error]="contactForm.get('businessName')?.invalid && contactForm.get('businessName')?.touched"
+            >
+            <span class="error-message" *ngIf="contactForm.get('businessName')?.invalid && contactForm.get('businessName')?.touched">
+              {{ getErrorMessage('businessName') }}
+            </span>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea
+              id="message"
+              formControlName="message"
+              placeholder="Tell us about your project..."
+              rows="6"
+              [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+            ></textarea>
+            <span class="error-message" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+              {{ getErrorMessage('message') }}
+            </span>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="submit-btn"
+            [disabled]="isSubmitting"
+          >
+            {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="info-container" [@fadeInUp]>
+        <h2>Contact Information</h2>
+        <p class="info-intro">Have questions? We're here to help. Reach out to us through any of these channels.</p>
+
+        <div class="contact-info-grid">
+          <a
+            *ngFor="let info of contactInfo"
+            [href]="info.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-info-item"
+          >
+            <div class="info-icon">{{ info.icon }}</div>
+            <div class="info-content">
+              <h3>{{ info.title }}</h3>
+              <p>{{ info.value }}</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="additional-info">
+          <h3>Response Time</h3>
+          <p>We typically respond to all inquiries within 24 hours during business days.</p>
+          
+          <h3 style="margin-top: 2rem;">Working Hours</h3>
+          <p>Monday - Friday: 9:00 AM - 6:00 PM IST</p>
+          <p>Saturday: 10:00 AM - 3:00 PM IST</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-contact">
+  <div class="container">
+    <h2>Common Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item" [@fadeInUp]>
+        <h3>❓ What's your typical project timeline?</h3>
+        <p>Most projects take between 4-8 weeks depending on complexity. We'll provide a detailed timeline during consultation.</p>
+      </div>
+      <div class="faq-item" [@fadeInUp]>
+        <h3>❓ Do you provide ongoing support?</h3>
+        <p>Yes! All our plans include support. We offer extended support packages for long-term partnerships.</p>
+      </div>
+      <div class="faq-item" [@fadeInUp]>
+        <h3>❓ Can you work with our existing budget?</h3>
+        <p>Absolutely. We offer flexible pricing and can work with various budget constraints.</p>
+      </div>
+      <div class="faq-item" [@fadeInUp]>
+        <h3>❓ Do you provide SEO services?</h3>
+        <p>Yes, SEO optimization is included in our Professional and Enterprise plans.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,175 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.pricing-card {
+  background: linear-gradient(135deg, rgba($dark-card, 0.8), rgba($dark-card-secondary, 0.8));
+  border: 1px solid rgba($primary-blue, 0.2);
+  border-radius: 12px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $primary-blue, $secondary-blue);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: $primary-blue;
+    box-shadow: 0 20px 50px rgba($primary-blue, 0.1);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &.highlighted {
+    transform: scale(1.05);
+    border-color: $primary-blue;
+    box-shadow: 0 15px 40px rgba($primary-blue, 0.2);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .card-header::before {
+      content: 'POPULAR';
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, $primary-blue, $secondary-blue);
+      color: $text-white;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 0 0 8px 8px;
+      width: auto;
+      animation: slideDown 0.5s ease;
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, $primary-blue, $secondary-blue);
+      color: $text-white;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      transform: scale(1.02);
+    }
+  }
+}
+
+.card-header {
+  margin-bottom: 2rem;
+  position: relative;
+
+  h3 {
+    font-size: 1.5rem;
+    color: $text-white;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    .currency {
+      font-size: 1.5rem;
+      color: $primary-blue;
+      font-weight: 600;
+    }
+
+    .amount {
+      font-size: 2.5rem;
+      color: $text-white;
+      font-weight: 700;
+      background: linear-gradient(135deg, $primary-blue, $secondary-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  .description {
+    color: $text-light;
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  flex: 1;
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: $text-light;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+
+    .feature-icon {
+      color: $primary-blue;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .feature-text {
+      line-height: 1.4;
+    }
+
+    &:hover {
+      transform: translateX(5px);
+      color: $text-white;
+    }
+  }
+}
+
+.cta-button {
+  background: transparent;
+  border: 2px solid $primary-blue;
+  color: $primary-blue;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba($primary-blue, 0.2);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+  to {
+    top: -25px;
+    opacity: 1;
+  }
+}

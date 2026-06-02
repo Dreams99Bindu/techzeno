@@ -1,0 +1,152 @@
+@import 'variables.scss';
+
+// Responsive breakpoint mixin
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'mobile' {
+    @media (max-width: $mobile-breakpoint) {
+      @content;
+    }
+  } @else if $breakpoint == 'tablet' {
+    @media (max-width: $tablet-breakpoint) {
+      @content;
+    }
+  } @else if $breakpoint == 'desktop' {
+    @media (min-width: $desktop-breakpoint) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// Gradient
+@mixin gradient($start, $end, $direction: 135deg) {
+  background: linear-gradient($direction, $start, $end);
+}
+
+// Text truncate
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Multi-line truncate
+@mixin truncate-lines($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Aspect ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: ($height / $width) * 100%;
+  }
+
+  > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Button styles
+@mixin button-base {
+  padding: $spacing-md $spacing-lg;
+  border: none;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all $transition-base;
+  font-family: $font-primary;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: linear-gradient(135deg, $primary-blue, $secondary-blue);
+  color: $text-white;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba($primary-blue, 0.3);
+  }
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}
+
+// Overlay
+@mixin overlay($color: rgba(0, 0, 0, 0.5)) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $color;
+}
+
+// Scrollbar styling
+@mixin custom-scrollbar($track-color, $thumb-color) {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: 4px;
+
+    &:hover {
+      background: lighten($thumb-color, 10%);
+    }
+  }
+}
+
+// Focus styles
+@mixin focus-ring($color: $primary-blue, $width: 2px) {
+  outline: $width solid $color;
+  outline-offset: 2px;
+}
+
+// Animation mixin
+@mixin animation($name, $duration: 0.3s, $timing: ease, $delay: 0s) {
+  animation: $name $duration $timing $delay;
+}

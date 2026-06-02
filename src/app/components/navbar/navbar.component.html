@@ -1,0 +1,42 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <div class="navbar-logo">
+      <a routerLink="/">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Techzeno Solutions</span>
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <ul class="nav-menu" [class.active]="isMenuOpen">
+      <li class="nav-item" *ngFor="let link of navLinks">
+        <a 
+          [routerLink]="link.path" 
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeMenu()"
+          class="nav-link"
+        >
+          {{ link.label }}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a 
+          routerLink="/contact" 
+          class="nav-link cta-btn"
+          (click)="closeMenu()"
+        >
+          Get Started
+        </a>
+      </li>
+    </ul>
+
+    <!-- Hamburger Menu -->
+    <div class="hamburger" [class.active]="isMenuOpen" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>

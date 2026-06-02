@@ -1,0 +1,142 @@
+<!-- Hero Section -->
+<section class="services-hero">
+  <div class="container" [@fadeInUp]>
+    <h1>Our Services</h1>
+    <p>Comprehensive web solutions tailored to your business needs</p>
+  </div>
+</section>
+
+<!-- All Services -->
+<section class="all-services">
+  <div class="container">
+    <app-section-header
+      title="What We Offer"
+      subtitle="Our Expertise"
+      description="A full range of services to help your business succeed online"
+    ></app-section-header>
+
+    <div class="services-grid" [@staggerCards]="services.length">
+      <app-service-card
+        *ngFor="let service of services"
+        [service]="service"
+      ></app-service-card>
+    </div>
+  </div>
+</section>
+
+<!-- Service Process -->
+<section class="service-process">
+  <div class="container">
+    <app-section-header
+      title="How We Deliver"
+      subtitle="Our Process"
+      description="A structured approach to ensure quality at every step"
+    ></app-section-header>
+
+    <div class="process-timeline">
+      <div class="timeline-item" [@fadeInUp]>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>1. Consultation</h3>
+          <p>We meet with you to understand your business goals, target audience, and specific requirements.</p>
+        </div>
+      </div>
+      <div class="timeline-item" [@fadeInUp]>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>2. Planning & Strategy</h3>
+          <p>We develop a comprehensive plan that outlines the project scope, timeline, and technology stack.</p>
+        </div>
+      </div>
+      <div class="timeline-item" [@fadeInUp]>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>3. Design & Prototyping</h3>
+          <p>Our designers create beautiful, user-friendly interfaces that align with your brand identity.</p>
+        </div>
+      </div>
+      <div class="timeline-item" [@fadeInUp]>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>4. Development</h3>
+          <p>Our developers build your solution using the latest technologies and best practices.</p>
+        </div>
+      </div>
+      <div class="timeline-item" [@fadeInUp]>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>5. Testing & QA</h3>
+          <p>Rigorous testing ensures your website performs perfectly across all devices and browsers.</p>
+        </div>
+      </div>
+      <div class="timeline-item" [@fadeInUp]>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>6. Launch & Support</h3>
+          <p>We deploy your solution and provide ongoing support to ensure continued success.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technology Stack -->
+<section class="technology-section">
+  <div class="container">
+    <app-section-header
+      title="Technology Stack"
+      subtitle="Our Tools"
+      description="We use industry-leading technologies to build robust solutions"
+    ></app-section-header>
+
+    <div class="tech-grid">
+      <div class="tech-category" [@fadeInUp]>
+        <h3>Frontend</h3>
+        <ul>
+          <li>Angular 17+</li>
+          <li>TypeScript</li>
+          <li>SCSS/CSS3</li>
+          <li>RxJS</li>
+        </ul>
+      </div>
+      <div class="tech-category" [@fadeInUp]>
+        <h3>Backend</h3>
+        <ul>
+          <li>Node.js</li>
+          <li>Express.js</li>
+          <li>RESTful APIs</li>
+          <li>WebSockets</li>
+        </ul>
+      </div>
+      <div class="tech-category" [@fadeInUp]>
+        <h3>Database</h3>
+        <ul>
+          <li>MongoDB</li>
+          <li>Firebase</li>
+          <li>PostgreSQL</li>
+          <li>Redis</li>
+        </ul>
+      </div>
+      <div class="tech-category" [@fadeInUp]>
+        <h3>Tools & Services</h3>
+        <ul>
+          <li>Git & GitHub</li>
+          <li>Docker</li>
+          <li>AWS/Azure</li>
+          <li>CI/CD Pipelines</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container cta-container">
+    <div class="cta-content">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Let's discuss which services are right for your business.</p>
+      <a href="/contact" class="btn btn-primary btn-large">Contact Us Today</a>
+    </div>
+  </div>
+</section>

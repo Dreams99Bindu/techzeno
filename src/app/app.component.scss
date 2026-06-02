@@ -1,0 +1,25 @@
+@import '../styles/variables.scss';
+
+.main-content {
+  min-height: calc(100vh - 200px);
+}
+
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, $primary-blue, $secondary-blue);
+  z-index: 9999;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

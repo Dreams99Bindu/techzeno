@@ -1,0 +1,217 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.portfolio-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba($dark-bg, 0.9), rgba($dark-bg-secondary, 0.9));
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($primary-blue, 0.1), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-size: 3rem;
+      color: $text-white;
+      margin-bottom: 1rem;
+      font-weight: 700;
+
+      @media (max-width: $tablet-breakpoint) {
+        font-size: 2.5rem;
+      }
+
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: $text-light;
+
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.portfolio-section {
+  padding: 6rem 2rem;
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+
+    @media (max-width: $tablet-breakpoint) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+}
+
+.client-benefits {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba($dark-bg-secondary, 0.3), rgba($dark-bg, 0.3));
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+
+    @media (max-width: $mobile-breakpoint) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .benefit-card {
+    background: linear-gradient(135deg, rgba($dark-card, 0.8), rgba($dark-card-secondary, 0.8));
+    border: 1px solid rgba($primary-blue, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+      border-color: $primary-blue;
+      box-shadow: 0 20px 40px rgba($primary-blue, 0.15);
+
+      .benefit-icon {
+        transform: scale(1.2);
+      }
+    }
+
+    .benefit-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    h3 {
+      color: $text-white;
+      margin: 1rem 0;
+      font-weight: 600;
+    }
+
+    p {
+      color: $text-light;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}
+
+.cta-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, $primary-blue, $secondary-blue);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba($text-white, 0.1), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .cta-container {
+    max-width: $max-width;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    .cta-content {
+      h2 {
+        font-size: 2.5rem;
+        color: $text-white;
+        margin-bottom: 1rem;
+        font-weight: 700;
+
+        @media (max-width: $mobile-breakpoint) {
+          font-size: 1.8rem;
+        }
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: rgba($text-white, 0.9);
+        margin-bottom: 2.5rem;
+
+        @media (max-width: $mobile-breakpoint) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: inline-block;
+  cursor: pointer;
+
+  &.btn-primary {
+    background: $text-white;
+    color: $primary-blue;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &.btn-large {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    width: 100%;
+    text-align: center;
+  }
+}

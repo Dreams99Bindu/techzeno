@@ -1,0 +1,315 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.contact-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba($dark-bg, 0.9), rgba($dark-bg-secondary, 0.9));
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($primary-blue, 0.1), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-size: 3rem;
+      color: $text-white;
+      margin-bottom: 1rem;
+      font-weight: 700;
+
+      @media (max-width: $tablet-breakpoint) {
+        font-size: 2.5rem;
+      }
+
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: $text-light;
+
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.contact-section {
+  padding: 6rem 2rem;
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+
+    @media (max-width: $tablet-breakpoint) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+}
+
+.form-container,
+.info-container {
+  h2 {
+    font-size: 2rem;
+    color: $text-white;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+}
+
+.form-container {
+  .alert {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-weight: 500;
+
+    &.alert-success {
+      background: rgba(76, 175, 80, 0.2);
+      border: 1px solid rgba(76, 175, 80, 0.5);
+      color: #4caf50;
+    }
+
+    &.alert-error {
+      background: rgba(244, 67, 54, 0.2);
+      border: 1px solid rgba(244, 67, 54, 0.5);
+      color: #f44336;
+    }
+  }
+
+  form {
+    .form-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        color: $text-white;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        background: rgba($dark-card, 0.8);
+        border: 1px solid rgba($primary-blue, 0.3);
+        color: $text-white;
+        padding: 0.8rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        font-family: inherit;
+
+        &::placeholder {
+          color: rgba($text-light, 0.5);
+        }
+
+        &:focus {
+          outline: none;
+          border-color: $primary-blue;
+          background: rgba($dark-card, 0.95);
+          box-shadow: 0 0 15px rgba($primary-blue, 0.2);
+        }
+
+        &.error {
+          border-color: #f44336;
+          background: rgba(244, 67, 54, 0.1);
+
+          &:focus {
+            box-shadow: 0 0 15px rgba(244, 67, 54, 0.2);
+          }
+        }
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      .error-message {
+        display: block;
+        color: #f44336;
+        font-size: 0.85rem;
+        margin-top: 0.3rem;
+      }
+    }
+  }
+}
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, $primary-blue, $secondary-blue);
+  color: $text-white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba($primary-blue, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.info-container {
+  .info-intro {
+    color: $text-light;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-info-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, rgba($dark-card, 0.8), rgba($dark-card-secondary, 0.8));
+    border: 1px solid rgba($primary-blue, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: $primary-blue;
+      box-shadow: 0 10px 25px rgba($primary-blue, 0.15);
+      transform: translateX(10px);
+
+      .info-icon {
+        transform: scale(1.2);
+      }
+    }
+
+    .info-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .info-content {
+      h3 {
+        color: $text-white;
+        margin: 0 0 0.3rem 0;
+        font-weight: 600;
+      }
+
+      p {
+        color: $text-light;
+        margin: 0;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+.additional-info {
+  background: linear-gradient(135deg, rgba($dark-card, 0.6), rgba($dark-card-secondary, 0.6));
+  border: 1px solid rgba($primary-blue, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+
+  h3 {
+    color: $primary-blue;
+    margin: 0 0 0.8rem 0;
+    font-weight: 600;
+  }
+
+  p {
+    color: $text-light;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+}
+
+.faq-contact {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba($dark-bg-secondary, 0.3), rgba($dark-bg, 0.3));
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: $text-white;
+    margin-bottom: 3rem;
+    font-weight: 600;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .faq-item {
+    background: linear-gradient(135deg, rgba($dark-card, 0.8), rgba($dark-card-secondary, 0.8));
+    border: 1px solid rgba($primary-blue, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+
+    &:hover {
+      border-color: $primary-blue;
+      box-shadow: 0 15px 35px rgba($primary-blue, 0.1);
+      transform: translateY(-5px);
+    }
+
+    h3 {
+      color: $text-white;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    p {
+      color: $text-light;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}

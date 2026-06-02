@@ -1,0 +1,80 @@
+<!-- Hero Section -->
+<section class="portfolio-hero">
+  <div class="container" [@fadeInUp]>
+    <h1>Our Portfolio</h1>
+    <p>Showcasing successful projects that drive results</p>
+  </div>
+</section>
+
+<!-- Projects Grid -->
+<section class="portfolio-section">
+  <div class="container">
+    <app-section-header
+      title="Recent Projects"
+      subtitle="Our Work"
+      description="A collection of successful projects across various industries"
+    ></app-section-header>
+
+    <div class="portfolio-grid" [@staggerCards]="projects.length">
+      <app-portfolio-card
+        *ngFor="let project of projects"
+        [project]="project"
+      ></app-portfolio-card>
+    </div>
+  </div>
+</section>
+
+<!-- Why Clients Choose Us -->
+<section class="client-benefits">
+  <div class="container">
+    <app-section-header
+      title="Why Clients Choose Techzeno"
+      subtitle="Our Difference"
+      description="What makes our work stand out"
+    ></app-section-header>
+
+    <div class="benefits-grid">
+      <div class="benefit-card" [@fadeInUp]>
+        <div class="benefit-icon">📊</div>
+        <h3>Data-Driven Approach</h3>
+        <p>Every project is guided by data insights to ensure maximum impact on your business goals.</p>
+      </div>
+      <div class="benefit-card" [@fadeInUp]>
+        <div class="benefit-icon">⚡</div>
+        <h3>Performance First</h3>
+        <p>We build fast-loading, optimized websites that provide excellent user experience.</p>
+      </div>
+      <div class="benefit-card" [@fadeInUp]>
+        <div class="benefit-icon">🎨</div>
+        <h3>Beautiful Design</h3>
+        <p>Modern, professional designs that reflect your brand and engage your audience.</p>
+      </div>
+      <div class="benefit-card" [@fadeInUp]>
+        <div class="benefit-icon">📱</div>
+        <h3>Mobile First</h3>
+        <p>All our websites are fully responsive and optimized for mobile devices.</p>
+      </div>
+      <div class="benefit-card" [@fadeInUp]>
+        <div class="benefit-icon">🔒</div>
+        <h3>Secure & Reliable</h3>
+        <p>Enterprise-grade security and reliability to protect your business and data.</p>
+      </div>
+      <div class="benefit-card" [@fadeInUp]>
+        <div class="benefit-icon">🚀</div>
+        <h3>Continuous Support</h3>
+        <p>Ongoing maintenance and support to ensure your website stays current and performing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container cta-container">
+    <div class="cta-content">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Let's create something amazing together.</p>
+      <a href="/contact" class="btn btn-primary btn-large">Get Started Now</a>
+    </div>
+  </div>
+</section>

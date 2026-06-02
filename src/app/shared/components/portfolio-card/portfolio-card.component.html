@@ -1,0 +1,22 @@
+<div class="portfolio-card" [@slideIn] (mouseenter)="isHovering = true" (mouseleave)="isHovering = false">
+  <div class="image-wrapper">
+    <img [src]="project.image" [alt]="project.title" loading="lazy">
+    <div class="overlay" *ngIf="isHovering">
+      <div class="overlay-content">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.category }}</p>
+        <button class="details-btn">View Details →</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-content">
+    <span class="category">{{ project.category }}</span>
+    <h3>{{ project.title }}</h3>
+    <p class="description">{{ project.description }}</p>
+    <div class="technologies">
+      <span class="tech-tag" *ngFor="let tech of project.technologies">
+        {{ tech }}
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,323 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.services-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba($dark-bg, 0.9), rgba($dark-bg-secondary, 0.9));
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($primary-blue, 0.1), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-size: 3rem;
+      color: $text-white;
+      margin-bottom: 1rem;
+      font-weight: 700;
+
+      @media (max-width: $tablet-breakpoint) {
+        font-size: 2.5rem;
+      }
+
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: $text-light;
+
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.all-services {
+  padding: 6rem 2rem;
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+
+    @media (max-width: $mobile-breakpoint) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+}
+
+.service-process {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba($dark-bg-secondary, 0.3), rgba($dark-bg, 0.3));
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  .process-timeline {
+    position: relative;
+    padding: 2rem 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, $primary-blue, transparent);
+      transform: translateX(-50%);
+
+      @media (max-width: $tablet-breakpoint) {
+        left: 15px;
+      }
+    }
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+
+    &:nth-child(even) {
+      direction: rtl;
+
+      .timeline-content {
+        direction: ltr;
+      }
+    }
+
+    @media (max-width: $tablet-breakpoint) {
+      grid-template-columns: 50px 1fr;
+      gap: 2rem;
+      direction: ltr !important;
+
+      .timeline-content {
+        direction: ltr !important;
+      }
+    }
+  }
+
+  .timeline-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: $primary-blue;
+    border: 3px solid $dark-bg;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    @media (max-width: $tablet-breakpoint) {
+      left: 8px;
+      top: 25px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .timeline-content {
+    background: linear-gradient(135deg, rgba($dark-card, 0.8), rgba($dark-card-secondary, 0.8));
+    border: 1px solid rgba($primary-blue, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+
+    &:hover {
+      border-color: $primary-blue;
+      box-shadow: 0 15px 35px rgba($primary-blue, 0.1);
+      transform: translateY(-5px);
+    }
+
+    h3 {
+      color: $text-white;
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: $text-light;
+      margin: 0;
+      line-height: 1.6;
+    }
+  }
+}
+
+.technology-section {
+  padding: 6rem 2rem;
+
+  .container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+
+    @media (max-width: $mobile-breakpoint) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .tech-category {
+    background: linear-gradient(135deg, rgba($dark-card, 0.8), rgba($dark-card-secondary, 0.8));
+    border: 1px solid rgba($primary-blue, 0.2);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+      border-color: $primary-blue;
+      box-shadow: 0 20px 40px rgba($primary-blue, 0.15);
+    }
+
+    h3 {
+      color: $primary-blue;
+      margin: 0 0 1.5rem 0;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        color: $text-light;
+        padding: 0.6rem 0;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $primary-blue;
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+}
+
+.cta-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, $primary-blue, $secondary-blue);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba($text-white, 0.1), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .cta-container {
+    max-width: $max-width;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    .cta-content {
+      h2 {
+        font-size: 2.5rem;
+        color: $text-white;
+        margin-bottom: 1rem;
+        font-weight: 700;
+
+        @media (max-width: $mobile-breakpoint) {
+          font-size: 1.8rem;
+        }
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: rgba($text-white, 0.9);
+        margin-bottom: 2.5rem;
+
+        @media (max-width: $mobile-breakpoint) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: inline-block;
+  cursor: pointer;
+
+  &.btn-primary {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    color: $text-white;
+    border-color: $text-white;
+
+    &:hover {
+      background: $text-white;
+      color: $primary-blue;
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &.btn-large {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    width: 100%;
+    text-align: center;
+  }
+}

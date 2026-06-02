@@ -1,0 +1,49 @@
+@import '../../../../styles/variables.scss';
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-white;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, $text-white, rgba($text-white, 0.7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .subtitle-wrapper {
+    margin-bottom: 1rem;
+
+    .subtitle {
+      display: inline-block;
+      background: rgba($primary-blue, 0.2);
+      color: $primary-blue;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  .description {
+    font-size: 1.1rem;
+    color: $text-light;
+    max-width: 600px;
+    margin: 1rem auto 0;
+    line-height: 1.8;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+}

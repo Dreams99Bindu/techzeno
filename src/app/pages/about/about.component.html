@@ -1,0 +1,145 @@
+<!-- Hero Section -->
+<section class="about-hero">
+  <div class="container" [@fadeInUp]>
+    <h1>About Techzeno Solutions</h1>
+    <p>Building exceptional digital experiences since 2016</p>
+  </div>
+</section>
+
+<!-- Our Story -->
+<section class="our-story">
+  <div class="container">
+    <div class="story-content">
+      <div class="story-text" [@fadeInUp]>
+        <h2>Our Story</h2>
+        <p>
+          Techzeno Solutions was founded with a simple vision: to help businesses thrive in the digital world.
+          What started as a small team of passionate developers has grown into a full-service digital agency
+          serving clients across India and beyond.
+        </p>
+        <p>
+          Over the past 8 years, we've successfully delivered over 50 projects, each one contributing to our
+          expertise and understanding of diverse industry needs. We believe that great web solutions should
+          combine aesthetic design with powerful functionality.
+        </p>
+        <p>
+          Today, we continue our mission to build beautiful, high-performing websites that help businesses
+          grow and succeed in the competitive digital landscape.
+        </p>
+      </div>
+      <div class="story-image">
+        <div class="image-placeholder">
+          <span>📱</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="mission-vision">
+  <div class="container">
+    <div class="mission-vision-grid">
+      <div class="mission-card" [@fadeInUp]>
+        <div class="icon">🎯</div>
+        <h3>Our Mission</h3>
+        <p>
+          To empower businesses of all sizes with innovative web solutions that drive growth,
+          enhance user engagement, and deliver measurable results.
+        </p>
+      </div>
+      <div class="vision-card" [@fadeInUp]>
+        <div class="icon">🚀</div>
+        <h3>Our Vision</h3>
+        <p>
+          To be the most trusted and innovative digital solutions partner, recognized for excellence,
+          integrity, and commitment to client success.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="core-values">
+  <div class="container">
+    <app-section-header
+      title="Our Core Values"
+      subtitle="What We Stand For"
+      description="Principles that guide our work every day"
+    ></app-section-header>
+
+    <div class="values-grid" [@staggerItems]="values.length">
+      <div class="value-card" *ngFor="let value of values">
+        <div class="value-icon">{{ value.icon }}</div>
+        <h3>{{ value.title }}</h3>
+        <p>{{ value.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+  <div class="container">
+    <app-section-header
+      title="Meet Our Team"
+      subtitle="Our People"
+      description="Talented professionals dedicated to your success"
+    ></app-section-header>
+
+    <div class="team-grid" [@staggerItems]="teamMembers.length">
+      <div class="team-card" *ngFor="let member of teamMembers">
+        <div class="member-avatar">
+          {{ member.name.charAt(0) }}{{ member.name.split(' ')[1].charAt(0) }}
+        </div>
+        <h3>{{ member.name }}</h3>
+        <p class="role">{{ member.role }}</p>
+        <p class="bio">{{ member.bio }}</p>
+        <div class="socials" *ngIf="member.socials">
+          <a *ngIf="member.socials.linkedin" [href]="member.socials.linkedin" class="social-link">In</a>
+          <a *ngIf="member.socials.twitter" [href]="member.socials.twitter" class="social-link">𝕏</a>
+          <a *ngIf="member.socials.github" [href]="member.socials.github" class="social-link">⚡</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Work With Us -->
+<section class="why-work-with-us">
+  <div class="container">
+    <app-section-header
+      title="Why Work With Us"
+      subtitle="Our Strengths"
+      description="What makes us different"
+    ></app-section-header>
+
+    <div class="reasons-grid">
+      <div class="reason-item" [@fadeInUp]>
+        <h3>✓ Proven Track Record</h3>
+        <p>50+ successful projects with measurable results and satisfied clients.</p>
+      </div>
+      <div class="reason-item" [@fadeInUp]>
+        <h3>✓ Expert Team</h3>
+        <p>Highly skilled developers, designers, and strategists with 8+ years of experience.</p>
+      </div>
+      <div class="reason-item" [@fadeInUp]>
+        <h3>✓ Cutting-Edge Technology</h3>
+        <p>We use the latest and most efficient technologies to build robust solutions.</p>
+      </div>
+      <div class="reason-item" [@fadeInUp]>
+        <h3>✓ Client-Focused Approach</h3>
+        <p>We listen to your needs and deliver solutions aligned with your business goals.</p>
+      </div>
+      <div class="reason-item" [@fadeInUp]>
+        <h3>✓ Transparent Communication</h3>
+        <p>Regular updates and clear communication throughout the project lifecycle.</p>
+      </div>
+      <div class="reason-item" [@fadeInUp]>
+        <h3>✓ Ongoing Support</h3>
+        <p>We don't just build and leave—we provide continuous support and maintenance.</p>
+      </div>
+    </div>
+  </div>
+</section>

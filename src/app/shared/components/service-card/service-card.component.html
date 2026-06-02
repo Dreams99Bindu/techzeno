@@ -1,0 +1,14 @@
+<div class="service-card" [@hover]>
+  <div class="icon-wrapper">
+    <span class="service-icon">{{ getIcon(service.icon) }}</span>
+  </div>
+  <h3>{{ service.title }}</h3>
+  <p class="description">{{ service.description }}</p>
+  <ul class="features" *ngIf="service.features">
+    <li *ngFor="let feature of service.features">
+      <span class="checkmark">✓</span>
+      {{ feature }}
+    </li>
+  </ul>
+  <button class="learn-more">Learn More →</button>
+</div>
